@@ -1,0 +1,36 @@
+Documento de Pesquisa: CRUD com PHP e Visualização Gráfica
+Introdução
+Esta pesquisa tem como objetivo apresentar os conceitos fundamentais para o desenvolvimento de uma aplicação web funcional utilizando PHP, com foco na implementação das operações CRUD (Criar, Ler, Atualizar e Excluir) integradas a um banco de dados MySQL/MariaDB. Além disso, exploramos a visualização dos dados por meio de gráficos dinâmicos utilizando bibliotecas JavaScript, destacando o papel do formato JSON na comunicação entre backend e frontend.
+
+Parte 1: O CRUD - Gerenciando os Dados
+1.1. Conexão com o Banco de Dados
+Questão: Quais são as vantagens de usar PDO ou MySQLi em vez da antiga extensão mysql_* (que está obsoleta)? Foque em segurança (SQL Injection) e flexibilidade.
+
+Resposta:
+A extensão antiga mysql_* foi removida por não oferecer segurança adequada nem suporte a funcionalidades modernas. PDO e MySQLi fornecem suporte a prepared statements, que evitam ataques de SQL Injection ao separar os dados da consulta SQL. PDO é mais flexível, suportando múltiplos bancos de dados, enquanto MySQLi é específico para MySQL com funcionalidades modernas como transações e tratamento de erros aprimorado.
+
+1.2. Estrutura do Projeto
+Questão: Por que é uma boa prática separar o código PHP da marcação HTML?
+
+Resposta:
+Separar lógica e apresentação facilita a manutenção, legibilidade e organização do código. Permite que desenvolvedores e designers trabalhem em suas áreas específicas, promove reutilização e segurança, além de ser a base para padrões de arquitetura como MVC.
+
+1.3. Implementando as Operações
+Como criar um formulário HTML que envia dados (via POST) para um script PHP que insere esses dados no banco (SQL INSERT)?
+Cria-se um formulário HTML com método POST e campos para entrada dos dados. No PHP, os dados são recebidos via $_POST e inseridos no banco usando uma instrução SQL INSERT INTO com prepared statements para segurança.
+
+Como buscar os dados do banco e exibi-los em uma tabela HTML (SQL SELECT)?
+Executa-se uma consulta SELECT no banco. No PHP, usa-se um loop para percorrer os resultados e preencher uma tabela HTML com os dados de cada registro.
+
+Como criar um formulário de edição pré-preenchido com os dados de um registro específico e, ao submeter, atualizar o registro (SQL UPDATE)?
+Busca-se o registro pelo ID com SELECT, preenche o formulário HTML com os dados encontrados e, ao enviar, o PHP atualiza o registro usando UPDATE com prepared statements.
+
+Como adicionar um botão ou link que remove um registro específico do banco (SQL DELETE)?
+Inclui-se na tabela um botão/link com o ID do registro. Ao clicar, o PHP recebe o ID e executa um DELETE FROM tabela WHERE id = ? para remover o registro, preferencialmente confirmando a ação para evitar exclusões acidentais.
+
+Parte 2: A Visualização - Criando Gráficos com PHP
+2.2. Integração do PHP com a Biblioteca de Gráfico
+Qual a função do json_encode() e por que o formato JSON é tão utilizado para a comunicação entre backend (PHP) e frontend (JavaScript)?
+json_encode() converte dados PHP em uma string JSON, que é um formato leve, legível e padrão para troca de dados. JSON permite que o frontend em JavaScript interprete 
+
+facilmente os dados, facilitando a comunicação assíncrona e a atualização dinâmica de conteúdos na página web.
